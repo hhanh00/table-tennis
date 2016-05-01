@@ -1,0 +1,15 @@
+import 'polyfill'
+
+import m from 'mithril'
+
+class Test {
+	view() {
+		return (
+			<h1>Hello</h1>
+			)
+	}
+}
+
+var test = new Test()
+
+m.mount(document.getElementById('root'), { controller: test.controller, view: test.view })

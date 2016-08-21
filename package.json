@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node -r babel-core/register server.js"
+    "start": "node app.js"
   },
   "author": "Hanh Huynh Huu",
   "devDependencies": {

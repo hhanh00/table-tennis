@@ -12,15 +12,15 @@ export default {
   },
   module: {
     loaders: [{
-      test: /\.msx$/,
-      loader: 'babel-loader?presets=es2015!msx-loader?es6module',
+      test: /\.jsx$/,
+      loader: 'babel-loader?presets=es2015',
       exclude: path.resolve(__dirname, 'node_modules')
     },
     { test: /\.css$/, loader: "style-loader!css-loader" }
     ]
   },
   resolve: {
-    extensions: ['', '.msx', '.js']
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

@@ -11,6 +11,14 @@ export default {
     publicPath: '/static/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['jshint'],
+        // define an include so we check just the files we need
+        include: __dirname
+      }
+    ],
     loaders: [{
       test: /\.jsx$/,
       loader: 'babel-loader?presets=es2015',

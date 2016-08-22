@@ -15,6 +15,7 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
+app.use(express.static('bower_components'))
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });

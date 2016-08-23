@@ -1,25 +1,20 @@
 /*jshint esversion: 6, asi: true, strict: true, browser: true */
 
+import _ from 'lodash'
 import Table from './table'
 import { TABLE, MOUSE, TABLE_REFRESH_DELAY, helpItemsUsed } from './consts'
 
 (function() {
 "use strict"
 // contains an array of tables.
-const tableArray = []
-
 class Editor {
+	constructor() {
+		this.tableArray = []	
+	}
+
 	updateTables() { // Updates tables. Removes any dead tables from table array
-	  var closeTables = tableArray.filter(t => !t.active)
-	  while (closeTables.length > 1) {
-	    this.removeTable(closeTables.shift())
-	  }
-	  for (var i = 0; i < tableArray.length; i++) {
-	    if (tableArray[i].dead) {
-	      tableArray.splice(i, 1)
-	      i -= 1
-	    }
-	  }
+		_(this.tableArray).initial().filter(t => !t.active).forEach(t => this.removeTable(t)).value()
+		this.tableArray = _(this.tableArray).filter(t => !t.dead).value()
 	}
 
 	createAddTable() { // Creates a table. Tables default in inactive
@@ -30,7 +25,7 @@ class Editor {
 	  const table = this.createAddTable() // create new table
 	  TABLE.tables.appendChild(table.div) // add to the dom
 	  table.mouse.start() // start the mouse
-	  tableArray.push(table) // add to table array
+	  this.tableArray.push(table) // add to table array
 	  return table
 	}
 

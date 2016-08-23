@@ -16,7 +16,8 @@ export default {
         test: /\.jsx?$/,
         loaders: ['strict', 'jshint'],
         // define an include so we check just the files we need
-        include: __dirname
+        include: __dirname,
+        exclude: /node_modules/        
       }
     ],
     loaders: [{

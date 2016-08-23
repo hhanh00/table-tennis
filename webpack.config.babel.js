@@ -14,14 +14,14 @@ export default {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['jshint'],
+        loaders: ['strict', 'jshint'],
         // define an include so we check just the files we need
         include: __dirname
       }
     ],
     loaders: [{
       test: /\.jsx$/,
-      loader: 'babel-loader?presets=es2015',
+      loaders: ['babel-loader?presets=es2015'],
       exclude: path.resolve(__dirname, 'node_modules')
     },
     { test: /\.css$/, loader: "style-loader!css-loader" }

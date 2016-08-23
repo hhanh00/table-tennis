@@ -1,0 +1,9 @@
+body {
+  background-color: #982439;
+}
+#table {
+  padding: 10px;
+}
+canvas {
+  position: absolute;
+}
